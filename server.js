@@ -19,7 +19,15 @@ app.use(express.json());
 app.use(cors());
 
 //routes
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "API is running",
+    status: "success",
+  });
+});
+
 app.use("/api/v1/users", require("./routes/userRoute"));
+app.use("/api/v1/expenses", require("./routes/expenseRoute"));
 
 //port
 const PORT = 8080 || process.env.PORT;

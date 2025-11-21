@@ -42,56 +42,142 @@ Expense-Management-System/
 ### Prerequisites
 - Node.js (v14+)
 - npm
-- MongoDB (local or Atlas)
+- MongoDB Atlas account (or local MongoDB)
 
-### Backend Setup
-1. Install dependencies:
-	```powershell
-	npm install
-	```
-2. Configure MongoDB connection in `config/connectDb.js`.
-3. Start backend server:
-	```powershell
-	node server.js
-	```
+### Installation & Setup
 
-### Frontend Setup
-1. Navigate to client folder:
-	```powershell
-	cd client
-	```
-2. Install dependencies:
-	```powershell
-	npm install
-	```
-3. Start React app:
-	```powershell
-	npm start
-	```
-
-### Environment Variables
-Create a `.env` file in the root for backend secrets:
+**1. Clone the repository:**
+```powershell
+git clone https://github.com/sahil-bharadwaj/Expense-Management-System.git
+cd Expense-Management-System
 ```
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
+
+**2. Backend Setup:**
+```powershell
+# Install backend dependencies
+npm install
+
+# Create config/.env file
+# Add your MongoDB connection string
 ```
+
+Create `config/.env` file with:
+```
+MONGO_URL=mongodb+srv://username:password@cluster.mongodb.net/expense_db?retryWrites=true&w=majority
+```
+
+**3. Frontend Setup:**
+```powershell
+# Navigate to client folder
+cd client
+
+# Install frontend dependencies
+npm install
+
+# Install moment for date formatting
+npm install moment
+
+# Go back to root
+cd ..
+```
+
+**4. Run the Application:**
+
+**Option A - Run both servers concurrently:**
+```powershell
+npm run dev
+```
+
+**Option B - Run separately:**
+
+Terminal 1 (Backend):
+```powershell
+npm start
+```
+
+Terminal 2 (Frontend):
+```powershell
+cd client
+npm start
+```
+
+The app will open at `http://localhost:3000` and backend runs on `http://localhost:8080`
 
 ## API Endpoints
-- `POST /api/users/register` - Register new user
-- `POST /api/users/login` - Login user
-- `GET /api/expenses` - Get expenses (protected)
-- `POST /api/expenses` - Add expense (protected)
-- `PUT /api/expenses/:id` - Edit expense (protected)
-- `DELETE /api/expenses/:id` - Delete expense (protected)
 
-## Scripts
+### User Routes
+- `POST /api/v1/users/register` - Register new user
+- `POST /api/v1/users/login` - Login user
+
+### Expense Routes
+- `POST /api/v1/expenses/get-expenses` - Get all expenses for a user
+- `POST /api/v1/expenses/add-expense` - Add new expense
+- `PUT /api/v1/expenses/edit-expense/:id` - Update expense
+- `DELETE /api/v1/expenses/delete-expense/:id` - Delete expense
+
+## Available Scripts
+
+### Root Directory
 - `npm start` - Start backend server
-- `npm run dev` - Start backend with nodemon (if configured)
-- `cd client && npm start` - Start frontend
+- `npm run server` - Start backend with nodemon (auto-restart)
+- `npm run client` - Start frontend from root
+- `npm run dev` - Run both backend and frontend concurrently
 
+### Client Directory
+- `npm start` - Start React development server
+- `npm run build` - Build for production
+- `npm test` - Run tests
+
+## Usage Guide
+
+1. **Register:** Create a new account with name, email, and password
+2. **Login:** Sign in with your credentials
+3. **Dashboard:** View all your expenses and income transactions
+4. **Add Transaction:** Click "Add New" button to add income or expense
+   - Select type (Income/Expense)
+   - Choose category (Salary, Food, Bills, etc.)
+   - Enter amount, title, date, and description
+5. **Edit Transaction:** Click edit icon on any transaction to modify
+6. **Delete Transaction:** Click delete icon to remove a transaction
+7. **Filter:** Use the type selector to filter by Income/Expense/All
+8. **Logout:** Click logout button to end session
+
+## Project Structure Details
+
+```
+Backend:
+- server.js: Express server setup
+- config/connectDb.js: MongoDB connection
+- models/: Mongoose schemas (User, Expense)
+- controllers/: Business logic
+- routes/: API endpoints
+
+Frontend:
+- src/pages/: React page components
+- src/components/: Reusable UI components
+- src/App.js: Main routing setup
+```
+
+## Contributing
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+This project is licensed under the MIT License.
 
 ## Author
 - Sahil Bharadwaj
+
+## Acknowledgments
+- Built with MERN Stack
+- UI components from Ant Design
+- Icons from Ant Design Icons
+
+---
+⭐ Star this repo if you find it helpful!
 
 
 

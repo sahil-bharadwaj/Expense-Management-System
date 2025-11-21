@@ -5,7 +5,8 @@
 }
 
 .content {
-  height: 80vh;
+  min-height: 80vh;
+  padding: 20px;
 }
 
 .resgister-page {
@@ -13,4 +14,78 @@
   align-items: center;
   justify-content: center;
   height: 90vh;
+}
+
+.resgister-page form {
+  width: 400px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: white;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f5f5f5;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.switch-icons {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #1890ff;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #096dd9;
+}
+
+.mx-2 {
+  margin-left: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.mx-2:hover {
+  color: #1890ff;
+}
+
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.bg-dark {
+  background-color: #001529 !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
 }
